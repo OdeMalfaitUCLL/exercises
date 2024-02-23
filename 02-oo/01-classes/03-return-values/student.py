@@ -3,6 +3,9 @@ class Wall:
     height = 5
 
     # write your code here
+    def get_cost(self):
+        cost = self.armor * self.height
+        return cost
 
     # don't touch below this line
 
