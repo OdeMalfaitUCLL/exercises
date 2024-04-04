@@ -1,15 +1,14 @@
 import sys
 sys.path.append("..")
 from movie import movies
-def movie_counts(movies,director):
-    return [len(movie) for movie in movies if director == movie.director
-    ]
+def movie_count(movies,director):
+    return len([movie for movie in movies if director == movie.director])
 def longest_movie_runtime_with_actor(movies,actor):
     return max([movie.runtime for movie in movies if actor in movie.actors])
 def has_director_made_genre(movies, director,genre):
-    return any([genre in movie.genres and director == movie.directors for movie in movies])
+    return any([genre in movie.genres and director == movie.director for movie in movies])
 def is_prime(n):
-    return all([n%k == 0 for k in range(2,n) if n >= 2])
+    return all([n%k != 0 for k in range(2,n)]) and n >= 2
 def is_increasing(ns):
     return all([x <= y for x, y in zip(ns,ns[1:])])
 def count_matching(xs,ys):
@@ -26,7 +25,7 @@ def find_repeated_words(sentence):
     
 
 
-print(is_increasing([1,1,2,3,4,6]))
-print(count_matching([1, 2, 3], [3, 2, 1]))
-print(alternating_caps("abcdef"))
-print(find_repeated_words("This sentence has has repeated words. Words."))
+# print(is_increasing([1,1,2,3,4,6]))
+# print(count_matching([1, 2, 3], [3, 2, 1]))
+# print(alternating_caps("abcdef"))
+# print(find_repeated_words("This sentence has has repeated words. Words."))
